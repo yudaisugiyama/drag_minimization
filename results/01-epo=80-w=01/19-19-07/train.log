@@ -1,0 +1,123 @@
+[2022-09-13 19:19:08,924][util][INFO] - yaml
+name: drag
+model:
+  epsilon: 0.1
+  batch_size: 5
+  gamma: 0.9
+  learning_rate: 0.00025
+  synchro_time: 100
+  weight_name: weight.pth
+  test_anim_name: test.GIF
+  warm_up_anim_name: warm_up.GIF
+  reward_fig_name: reward.png
+  test_reward_fig_name: reward.png
+  loss_fig_name: loss.png
+  anim_interval: 25
+  train_anim_show: false
+env:
+  init_wide: 0.5
+  init_height: 0.5
+  max_episode: 100
+  max_epoch: 80
+  warm_up_epoch: 10
+  round_digit: 16
+  edp_path: /Users/YudaiSugiyama/00-Kurahashi-labo/00-program/06-DQN-minimize-drag/test.edp
+  csv_path: data.csv
+
+[2022-09-13 19:19:08,934][util][INFO] - optimizer
+Adam (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.999)
+    eps: 1e-08
+    lr: 0.00025
+    weight_decay: 0
+)
+[2022-09-13 19:19:08,934][util][INFO] - loss function
+SmoothL1Loss()
+[2022-09-13 19:19:08,934][util][INFO] - actions list
+[[-0.01  0.  ]
+ [ 0.    0.  ]
+ [ 0.01  0.  ]]
+[2022-09-13 19:19:08,935][util][INFO] - main network
+Sequential(
+  (0): Linear(in_features=2, out_features=3, bias=True)
+  (1): ReLU()
+  (2): Linear(in_features=3, out_features=4, bias=True)
+  (3): ReLU()
+  (4): Linear(in_features=4, out_features=5, bias=True)
+  (5): ReLU()
+  (6): Linear(in_features=5, out_features=3, bias=True)
+)
+[2022-09-13 19:19:08,935][util][INFO] - target network
+Sequential(
+  (0): Linear(in_features=2, out_features=3, bias=True)
+  (1): ReLU()
+  (2): Linear(in_features=3, out_features=4, bias=True)
+  (3): ReLU()
+  (4): Linear(in_features=4, out_features=5, bias=True)
+  (5): ReLU()
+  (6): Linear(in_features=5, out_features=3, bias=True)
+)
+[2022-09-13 19:19:28,109][matplotlib.animation][WARNING] - MovieWriter ffmpeg unavailable; using Pillow instead.
+[2022-09-13 19:19:28,109][matplotlib.animation][INFO] - Animation.save using <class 'matplotlib.animation.PillowWriter'>
+[2022-09-13 23:13:23,338][matplotlib.legend][WARNING] - No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+[2022-09-13 23:13:23,414][matplotlib.legend][WARNING] - No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+[2022-09-13 23:13:23,466][util][INFO] - q value
+[tensor([ 0.1096,  0.1096, -0.0985,  0.1097,  0.1097], grad_fn=<IndexBackward0>), tensor([0.1295, 0.1295, 0.1292, 0.1295, 0.1295], grad_fn=<IndexBackward0>), tensor([0.1483, 0.1486, 0.1483, 0.1483, 0.1484], grad_fn=<IndexBackward0>), tensor([0.1263, 0.1260, 0.1259, 0.1263, 0.1263], grad_fn=<IndexBackward0>), tensor([0.1152, 0.1152, 0.1151, 0.1151, 0.1150], grad_fn=<IndexBackward0>), tensor([ 0.0820,  0.0820,  0.0820, -0.3270,  0.0819], grad_fn=<IndexBackward0>), tensor([ 0.0468, -0.2577,  0.0468,  0.0467,  0.0468], grad_fn=<IndexBackward0>), tensor([0.0383, 0.0384, 0.0383, 0.0383, 0.0384], grad_fn=<IndexBackward0>), tensor([0.0238, 0.0239, 0.0238, 0.0238, 0.0238], grad_fn=<IndexBackward0>), tensor([ 0.0202,  0.0202,  0.0202,  0.0202, -0.3454], grad_fn=<IndexBackward0>), tensor([0.0217, 0.0217, 0.0218, 0.0217, 0.0217], grad_fn=<IndexBackward0>), tensor([0.0321, 0.0321, 0.0321, 0.0320, 0.0321], grad_fn=<IndexBackward0>), tensor([-0.4095, -0.2356,  0.0314,  0.0314,  0.0314], grad_fn=<IndexBackward0>), tensor([ 0.0325,  0.0324,  0.0324,  0.0325, -0.4440], grad_fn=<IndexBackward0>), tensor([0.0391, 0.0391, 0.0391, 0.0391, 0.0392], grad_fn=<IndexBackward0>), tensor([0.0490, 0.0490, 0.0490, 0.0490, 0.0490], grad_fn=<IndexBackward0>), tensor([ 0.0575,  0.0578,  0.0577, -0.1638,  0.0577], grad_fn=<IndexBackward0>), tensor([0.0953, 0.0954, 0.0953, 0.0955, 0.0953], grad_fn=<IndexBackward0>), tensor([0.1358, 0.1358, 0.1358, 0.1358, 0.1357], grad_fn=<IndexBackward0>), tensor([0.1770, 0.1772, 0.1767, 0.1770, 0.1770], grad_fn=<IndexBackward0>), tensor([ 0.1954, -0.7210,  0.1954,  0.1954,  0.1956], grad_fn=<IndexBackward0>), tensor([0.2237, 0.2240, 0.2237, 0.2239, 0.2237], grad_fn=<IndexBackward0>), tensor([-0.0114,  0.2565,  0.2569,  0.2569,  0.2567], grad_fn=<IndexBackward0>), tensor([0.2667, 0.2670, 0.2669, 0.2667, 0.2670], grad_fn=<IndexBackward0>), tensor([0.2882, 0.2885, 0.2887, 0.2890, 0.2885], grad_fn=<IndexBackward0>), tensor([ 0.3268, -0.9786,  0.3277,  0.3277,  0.3268], grad_fn=<IndexBackward0>), tensor([0.3674, 0.3667, 0.3674, 0.3674, 0.3663], grad_fn=<IndexBackward0>), tensor([0.3905, 0.1854, 0.3913, 0.3913, 0.3902], grad_fn=<IndexBackward0>), tensor([0.4473, 0.4473, 0.4477, 0.4464, 0.4468], grad_fn=<IndexBackward0>), tensor([0.4937, 0.4933, 0.4949, 0.4938, 0.4933], grad_fn=<IndexBackward0>), tensor([0.5535, 0.5523, 0.3667, 0.5530, 0.5535], grad_fn=<IndexBackward0>), tensor([0.5937, 0.5924, 0.5917, 0.5924, 0.5931], grad_fn=<IndexBackward0>), tensor([0.6035, 0.6022, 0.6048, 0.6035, 0.6035], grad_fn=<IndexBackward0>), tensor([0.6195, 0.6209, 0.6209, 0.6224, 0.6195], grad_fn=<IndexBackward0>), tensor([ 0.6593,  0.6615,  0.6615, -1.8543,  0.6615], grad_fn=<IndexBackward0>), tensor([0.6510, 0.6538, 0.6538, 0.6517, 0.6546], grad_fn=<IndexBackward0>), tensor([0.6884, 0.6874, 0.6874, 0.6866, 0.6881], grad_fn=<IndexBackward0>), tensor([0.7613, 1.0177, 0.7604, 0.7613, 0.7586], grad_fn=<IndexBackward0>), tensor([ 0.8126,  0.8110,  0.8136, -2.3313,  0.8126], grad_fn=<IndexBackward0>), tensor([0.9584, 0.9584, 0.9594, 0.9594, 0.9584], grad_fn=<IndexBackward0>), tensor([1.1356, 1.1356, 1.1370, 1.1330, 1.1370], grad_fn=<IndexBackward0>), tensor([1.3490, 1.3472, 1.3409, 1.3508, 1.3439], grad_fn=<IndexBackward0>), tensor([1.7369, 1.7393, 1.7393, 1.7469, 3.3119], grad_fn=<IndexBackward0>), tensor([ 4.0575,  4.2037,  4.6804, -4.0109,  2.2932], grad_fn=<IndexBackward0>), tensor([3.0020, 3.0020, 3.0063, 3.0020, 5.4244], grad_fn=<IndexBackward0>), tensor([3.8421, 3.8404, 3.8421, 7.5679, 3.8421], grad_fn=<IndexBackward0>), tensor([ 4.7836, -5.4554,  4.8027,  9.2058,  4.8173], grad_fn=<IndexBackward0>), tensor([ 5.9367,  5.9407,  5.9446, -5.9403, 10.8441], grad_fn=<IndexBackward0>), tensor([12.5366,  7.1480,  7.1277, 11.9914,  7.1376], grad_fn=<IndexBackward0>), tensor([ 8.6349, -6.4603, -6.4694,  8.6349, 15.3989], grad_fn=<IndexBackward0>), tensor([10.3683, 10.3831, 10.3683, 17.3376, 10.3409], grad_fn=<IndexBackward0>), tensor([12.4366, 22.3167, 19.6137, 12.4536, 20.1488], grad_fn=<IndexBackward0>), tensor([14.6506, 14.6641, 22.8048, 14.6450, 15.8923], grad_fn=<IndexBackward0>), tensor([17.1329, 27.4097, 17.1329, 17.1329, 17.1329], grad_fn=<IndexBackward0>), tensor([29.9543, 20.1175, 20.0238, 31.0117, 19.9963], grad_fn=<IndexBackward0>), tensor([38.5523, 23.1145, 23.0201, 23.0232, 36.7172], grad_fn=<IndexBackward0>), tensor([-8.5152, 26.1371, 26.2002, 39.8306, 40.7210], grad_fn=<IndexBackward0>), tensor([29.9076, 29.9474, 29.9474, 29.9474, 29.9474], grad_fn=<IndexBackward0>), tensor([49.1884, 56.0672, 49.1043, -6.7680, 33.9120], grad_fn=<IndexBackward0>), tensor([56.9403, 38.1662, 54.6886, 38.1256, 38.2115], grad_fn=<IndexBackward0>), tensor([60.6482, 71.6093, 43.0344, 68.3511, 43.0344], grad_fn=<IndexBackward0>), tensor([48.0474, 48.3561, 48.0474, 76.6415, 67.1686], grad_fn=<IndexBackward0>), tensor([53.3507, 77.3472, 53.2840, 53.2220, 85.1097], grad_fn=<IndexBackward0>), tensor([59.0949, 58.9558, 59.3530, 82.0445, 59.0949], grad_fn=<IndexBackward0>), tensor([ 65.4299,  65.2628, 105.9782,  65.4299,  -2.9888],
+       grad_fn=<IndexBackward0>), tensor([ 96.7740, 103.8625,  98.7214,  72.1673,  72.0799],
+       grad_fn=<IndexBackward0>), tensor([ 78.8649, 114.5072, 116.6061,  78.8649, 113.1553],
+       grad_fn=<IndexBackward0>), tensor([85.9281, 85.9281, 86.0302, 85.9281, 86.0302], grad_fn=<IndexBackward0>), tensor([143.7574,  93.4629,  93.4629, 127.8334, 129.2495],
+       grad_fn=<IndexBackward0>), tensor([  3.1075, 159.5047, 147.0565, 101.5734, 101.4549],
+       grad_fn=<IndexBackward0>), tensor([143.5536, 109.6086, 152.3093, 144.3030, 109.9014],
+       grad_fn=<IndexBackward0>), tensor([154.7404, 175.8073, 118.8325, 120.3951, 155.4016],
+       grad_fn=<IndexBackward0>), tensor([127.4028, 127.4028, 127.9383, 191.0950, 127.1636],
+       grad_fn=<IndexBackward0>), tensor([136.4779, 189.2672, 137.6833, 176.8235, 194.5442],
+       grad_fn=<IndexBackward0>), tensor([223.9318, 219.7111, 146.2766, 201.9144, 146.4410],
+       grad_fn=<IndexBackward0>), tensor([215.3674, 156.3282, 203.2310, 156.6234, 156.6974],
+       grad_fn=<IndexBackward0>), tensor([259.6706, 166.2014, 192.3666, 233.8614, 209.9734],
+       grad_fn=<IndexBackward0>), tensor([176.6933, 246.9205, 246.9205, 176.8914, 253.2375],
+       grad_fn=<IndexBackward0>), tensor([233.0723, 240.7554, 187.6293, 187.4241,  22.9893],
+       grad_fn=<IndexBackward0>), tensor([287.0970, 246.6344, 278.9730, 278.0900, 198.6236],
+       grad_fn=<IndexBackward0>), tensor([210.1499, 251.4711, 289.6042, 210.3487, 260.9241],
+       grad_fn=<IndexBackward0>), tensor([289.1480, 304.5629, 222.8448, 222.6052, 222.6052],
+       grad_fn=<IndexBackward0>), tensor([319.2619, 286.1573, 318.2527, 234.7434, 234.4921],
+       grad_fn=<IndexBackward0>), tensor([246.1555, 246.1555, 297.0001, 245.9268, 339.9887],
+       grad_fn=<IndexBackward0>), tensor([258.2728, 344.9355, 315.9800, 308.1175, 311.2604],
+       grad_fn=<IndexBackward0>), tensor([389.4117, 269.5660, 373.4151, 319.9091, 268.9448],
+       grad_fn=<IndexBackward0>), tensor([354.1229,  55.3441, 280.7745, 356.2462, 393.0519],
+       grad_fn=<IndexBackward0>), tensor([392.0245, 318.4511, 292.8089, 353.1830, 292.5401],
+       grad_fn=<IndexBackward0>), tensor([372.0930, 406.9742, 416.3062, 366.0993, 304.8033],
+       grad_fn=<IndexBackward0>), tensor([364.8171, 366.1632, 314.9563, 314.7648, 399.3600],
+       grad_fn=<IndexBackward0>), tensor([389.2824, 387.2011, 324.9310, 394.7849, 398.2657],
+       grad_fn=<IndexBackward0>), tensor([334.4677, 451.4819, 434.2205, 334.8241, 415.3673],
+       grad_fn=<IndexBackward0>), tensor([403.3848, 410.5193, 343.0007, 445.0748, 390.6730],
+       grad_fn=<IndexBackward0>), tensor([436.9630, 448.2769, 458.5775, 460.0749, 351.6123],
+       grad_fn=<IndexBackward0>), tensor([358.8289, 404.4876, 440.0001,  85.6103, 408.6990],
+       grad_fn=<IndexBackward0>), tensor([364.0294, 364.6561, 449.9272, 454.2492, 500.9659],
+       grad_fn=<IndexBackward0>), tensor([459.1142, 418.1828, 454.7354, 368.2975, 433.1833],
+       grad_fn=<IndexBackward0>), tensor([416.8544, 507.1991, 372.5135, 484.3629, 458.3583],
+       grad_fn=<IndexBackward0>), tensor([423.9986, 427.6118, 375.6079, 497.7635, 467.7065],
+       grad_fn=<IndexBackward0>), tensor([379.6544, 378.7308, 494.6120, 442.7582, 497.8944],
+       grad_fn=<IndexBackward0>)]
+[2022-09-13 23:13:23,489][util][INFO] - td error
+[tensor([ 0.0577,  0.0577, -1.6732,  3.3228,  3.3228]), tensor([  3.3642,   0.0990, -11.4641,   3.3642,   0.0990]), tensor([-11.4461,   3.3822,  -7.2673,  -7.2673,  -7.2673]), tensor([  3.3988,  -7.2507, -11.4295,   6.4172,   6.4172]), tensor([ 0.1138,  0.1138, -3.4259, -3.4259, -7.2705]), tensor([ 0.1033,  0.1033,  0.1033,  7.9677, -3.4364]), tensor([  0.0735,  -9.1920,  -3.4662, -16.0567,   0.0735]), tensor([-11.5212,  11.7168,   0.0418,  -7.3425,   6.3252]), tensor([  0.0343,   3.2994,   0.0343,  -3.5053, -16.0958]), tensor([  0.0215,   3.2866,   3.2866,   0.0215, -18.1595]), tensor([-7.3661,  0.0181,  3.2832,  0.0181, -7.3661]), tensor([  3.2846,  -3.5201,  -7.3647, -11.5435,  -7.3647]), tensor([-13.5095,   1.7509,   0.0288,   0.0288,   0.0288]), tensor([  3.2932, -11.5349,  -7.3561,   0.0281, -13.5102]), tensor([-3.5104,  0.0292,  0.0292, -3.5104,  3.2943]), tensor([0.0352, 3.3003, 0.0352, 3.3003, 0.0352]), tensor([-16.0860,   6.3276,   3.3092,   7.9084,   3.3092]), tensor([0.0522, 6.3356, 3.3173, 9.1261, 0.0522]), tensor([3.3514, 3.3514, 3.3514, 3.3514, 0.0862]), tensor([ 0.1228,  3.3880, -7.2616,  0.1228,  0.1228]), tensor([ 0.1598, -9.1056,  0.1598,  0.1598,  3.4251]), tensor([0.1761, 6.4598, 0.1761, 3.4414, 0.1761]), tensor([13.3499, -3.3382,  3.4668,  3.4668,  0.2015]), tensor([0.2315, 3.4968, 0.2315, 0.2315, 3.4968]), tensor([-3.2990,  0.2409,  3.5062,  6.5247,  0.2409]), tensor([-7.1250, -9.0058,  3.5250,  3.5250, -7.1250]), tensor([  0.2949,  -7.0898,   0.2949,   0.2949, -11.2688]), tensor([ -7.0541,   5.2401,   0.3307,   0.3307, -11.2331]), tensor([ 0.3522,  0.3522,  3.6177, -7.0327, -3.1877]), tensor([0.4030, 0.4030, 9.4781, 3.6685, 0.4030]), tensor([ 0.4443, -6.9408,  8.3088,  0.4443,  0.4443]), tensor([ 6.7828,  0.4983, -3.0419,  0.4983,  3.7639]), tensor([ -3.0066, -11.0310,   3.7993,  -3.0066,  -3.0066]), tensor([-6.8418,  0.5436,  0.5436,  6.8283, -6.8418]), tensor([-11.0053,   0.5594,   0.5594,   2.1592,   0.5594]), tensor([-15.5709,   0.5625,   0.5625, -11.0030,   3.8285]), tensor([ 6.9121,  0.6266,  0.6266, -2.9140,  0.6266]), tensor([  0.7077,  46.1046,  -2.8330,   0.7077, -10.8584]), tensor([  0.8615,  -6.5253,   7.1476, -17.3219,   0.8615]), tensor([1.0848, 1.0848, 4.3518, 4.3518, 1.0848]), tensor([ 1.3540,  1.3540,  4.6213, -6.0346,  4.6213]), tensor([  5.0253,   1.7573, -14.3834,   8.0466,  -5.6325]), tensor([ 2.1987,  5.4675,  5.4675, 13.8890, 41.2388]), tensor([10.7365, 40.2229, 57.3942, -6.3924,  6.1421]), tensor([ 3.6667,  3.6667,  6.9377,  3.6667, 43.5719]), tensor([ 1.1463,  4.6931,  1.1463, 58.1440,  1.1463]), tensor([ -5.5704, -12.1743,   6.0181,  58.1899,  12.3208]), tensor([2.3546e-02, 7.4294e+00, 3.8786e+00, 2.1030e+00, 5.4775e+01]), tensor([52.1232, 12.3597,  5.5276, 30.8330,  9.0807]), tensor([10.7286,  1.4734,  5.4106, 10.7286, 58.8044]), tensor([12.8518, 16.1365, 12.8518, 51.4945,  5.4318]), tensor([11.4968, 70.5182, 36.8670, 15.0576, 52.8742]), tensor([20.8315, 17.5402, 35.3476, 13.9761, 65.0858]), tensor([20.4738, 64.1682, 20.4738, 20.4738, 20.4738]), tensor([31.2718, 35.2516, 26.7294, 61.5611, 23.4313]), tensor([81.1481, 33.3691, 23.4332, 30.3104, 73.0852]), tensor([89.8189, 23.6836, 31.1454, 62.6756, 72.3114]), tensor([35.1766, 38.4895, 38.4895, 38.4895, 38.4895]), tensor([57.3619, 98.0580, 55.0964, 21.2635, 27.7545]), tensor([85.0071, 40.5762, 59.8297, 36.6834, 44.1692]), tensor([ 56.9877, 112.7244,  49.1925, 107.3065,  49.1925]), tensor([ 47.1415,  57.9851,  47.1415, 115.1376,  67.8869]), tensor([ 63.8636, 104.8014,  60.5208,  56.9089, 123.1103]), tensor([69.8502, 62.8840, 78.5547, 97.3182, 69.8502]), tensor([ 79.1457,  72.6731, 142.9918,  79.1457, 106.3682]), tensor([ 95.1177, 131.8487, 113.3249,  82.7379,  79.3754]), tensor([ 87.0812, 143.6298, 147.3688,  87.0812, 140.8859]), tensor([94.5881, 94.5881, 97.9673, 94.5881, 97.9673]), tensor([174.4827, 102.0723, 102.0723, 147.4037, 151.2563]), tensor([162.9449, 189.0526, 173.8522, 113.6347, 110.2392]), tensor([134.7220, 107.0027, 172.7284, 147.2685, 118.8990]), tensor([156.9294, 201.1180, 140.7967, 158.0878, 160.3507]), tensor([137.7406, 137.7406, 152.7770, 215.3066, 130.0935]), tensor([143.6735, 206.9360, 167.3045, 174.2213, 214.5745]), tensor([245.3840, 240.9908, 157.7059, 219.0874, 161.1501]), tensor([229.9991, 167.7471, 205.2386, 160.0535, 174.4295]), tensor([278.2212, 178.9016, 259.7260, 250.6698, 194.8327]), tensor([188.9726, 261.9437, 261.9437, 172.2729, 269.3071]), tensor([206.9398, 243.8605, 202.9787, 199.4931, 221.8323]), tensor([299.1091, 220.3380, 290.3573, 289.3654, 197.8228]), tensor([218.1297, 319.6298, 299.7977, 221.8805, 247.4128]), tensor([292.6276, 312.5410, 236.7392, 233.2213, 233.2213]), tensor([327.1950, 268.7351, 326.0533, 248.7874, 245.2579]), tensor([256.2377, 256.2377, 260.2747, 252.4587, 346.5619]), tensor([274.5532, 351.2379, 305.7645, 280.9574, 295.8034]), tensor([394.2247, 277.6316, 378.5273, 290.9265, 265.4242]), tensor([354.1091, 384.9452, 284.4595, 356.9278, 397.2758]), tensor([393.9189, 371.5312, 298.5391, 342.8629, 294.7251]), tensor([367.5922, 409.1582, 418.5893, 357.6393, 313.0188]), tensor([326.2065, 340.5470, 311.1466, 306.7742, 399.0601]), tensor([382.4974, 379.0206, 328.3322, 390.7961, 395.5727]), tensor([336.5053, 452.2472, 434.7417, 340.1288, 413.7555]), tensor([394.1393, 465.9864, 336.6296, 445.5227, 360.8101]), tensor([436.4824, 448.8809, 459.5711, 461.0907, 355.1301]), tensor([361.4405, 368.0573, 438.7332, 489.4144, 389.3223]), tensor([367.3291, 359.7870, 450.1374, 454.9679, 502.1435]), tensor([460.1701, 399.9254, 455.2799, 368.1767, 428.0624]), tensor([382.2473, 508.0997, 368.0673, 485.6411, 457.9673]), tensor([403.1113, 412.5314, 367.9439, 500.3326, 469.2541]), tensor([385.7859, 378.5912, 497.1082, 437.4723, 500.3821])]
+[2022-09-13 23:13:23,511][util][INFO] - total reward history
+    total reward      loss
+0      -129.2806  1.300729
+1       131.1948  3.312708
+2      -536.8303  6.914981
+3       167.6005  6.457303
+4      -390.4762  2.593489
+..           ...       ...
+95     3541.1639  1.625356
+96     3432.9735  4.617931
+97     3391.7853  7.862727
+98     3264.9048  9.049707
+99     3509.5432  2.882199
+
+[100 rows x 2 columns]
+[2022-09-13 23:13:23,520][util][INFO] - weight path
+/Users/YudaiSugiyama/00-Kurahashi-labo/00-program/06-DQN-minimize-drag/outputs/2022-09-13/19-19-07/weight.pth
+[2022-09-13 23:13:23,522][util][INFO] - time
+14054.594s

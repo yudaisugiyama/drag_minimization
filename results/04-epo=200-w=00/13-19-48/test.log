@@ -1,0 +1,52 @@
+[2022-09-14 13:19:50,560][util][INFO] - yaml
+name: drag
+model:
+  epsilon: 0.1
+  batch_size: 5
+  gamma: 0.9
+  learning_rate: 0.00025
+  synchro_time: 100
+  weight_name: weight.pth
+  test_anim_name: test.GIF
+  warm_up_anim_name: warm_up.GIF
+  reward_fig_name: reward.png
+  test_reward_fig_name: reward.png
+  loss_fig_name: loss.png
+  anim_interval: 25
+  train_anim_show: false
+env:
+  init_wide: 0.5
+  init_height: 0.5
+  max_episode: 100
+  max_epoch: 200
+  warm_up_epoch: 10
+  round_digit: 16
+  edp_path: /Users/YudaiSugiyama/00-Kurahashi-labo/00-program/06-DQN-minimize-drag/test.edp
+  csv_path: data.csv
+
+[2022-09-14 13:26:34,872][matplotlib.animation][WARNING] - MovieWriter ffmpeg unavailable; using Pillow instead.
+[2022-09-14 13:26:34,873][matplotlib.animation][INFO] - Animation.save using <class 'matplotlib.animation.PillowWriter'>
+[2022-09-14 13:26:39,513][matplotlib.legend][WARNING] - No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+[2022-09-14 13:26:39,571][util][INFO] - q value
+[]
+[2022-09-14 13:26:39,572][util][INFO] - td error
+[]
+[2022-09-14 13:26:39,572][util][INFO] - total reward history
+                                        state                      action   reward
+0                                  [0.5, 0.5]  [0.01, 0.0996015936254984]   7.8643
+1                  [0.51, 0.4807692307692308]  [0.01, 0.0996015936254984]  10.6031
+2                  [0.52, 0.4716981132075472]  [0.01, 0.0996015936254984]  13.1479
+3                   [0.53, 0.462962962962963]  [0.01, 0.0996015936254984]  15.5046
+4                  [0.54, 0.4545454545454545]  [0.01, 0.0996015936254984]  17.6986
+..                                        ...                         ...      ...
+195   [2.4499999999999913, 0.101626016260163]  [0.01, 0.0996015936254984]  58.0771
+196   [2.459999999999991, 0.1012145748987858]  [0.01, 0.0996015936254984]  58.0691
+197   [2.469999999999991, 0.1008064516129036]  [0.01, 0.0996015936254984]  58.0548
+198  [2.4799999999999907, 0.1004016064257032]  [0.01, 0.0996015936254984]  58.0274
+199  [2.4899999999999904, 0.1000000000000004]  [0.01, 0.0996015936254984]  58.0138
+
+[200 rows x 3 columns]
+[2022-09-14 13:26:39,588][util][INFO] - weight path
+/Users/YudaiSugiyama/00-Kurahashi-labo/00-program/06-DQN-minimize-drag/results/00-epo=40-w=00/16-11-12/weight.pth
+[2022-09-14 13:26:39,589][util][INFO] - time
+409.027s
