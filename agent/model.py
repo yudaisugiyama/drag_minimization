@@ -150,7 +150,7 @@ class LitEnvironment(pl.LightningModule):
         h = state[1]
         w_str = str(w)
         h_str = str(h)
-        if platform=='Windows': 
+        if self.platform=='Windows': 
             subprocess.run(["FreeFEM++", self.edp_path, "-h", h_str, "-w", w_str], encoding="utf-8", stdout=subprocess.PIPE)
         else:
             popen=Popen(["FreeFEM++", self.edp_path, "-h", h_str, "-w", w_str], encoding="utf-8", stdout=subprocess.PIPE)

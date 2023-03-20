@@ -19,7 +19,7 @@ border L2(t=-width,0){x=length; y=t; label=Dirichlet;}
 border L3(t=length,0){x=t; y=0; label=Dirichlet;};
 border C(t=0,2*pi){x=(0.5*width)+w*cos(t); y=(-0.5*width)+h*sin(t); label=Circle;};
 
-macro pow2(x)(2^x) // 
+macro pow2(x)(2^x) //
 real maxh = 0; // メッシュの細かさ
 
 mesh Th = buildmesh(L0(20*pow2(maxh))+L1(60*pow2(maxh))+L2(20*pow2(maxh))+L3(60*pow2(maxh))+C(-200*pow2(maxh)));
