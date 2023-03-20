@@ -121,7 +121,6 @@ class LitEnvironment(pl.LightningModule):
         init_area = np.pi * state[0] * state[1]
         total_reward = self.init_total_reward
         init_objective = self.invoke_FreeFEM(state)
-        print("init_objective=",init_objective)
 
         return state, total_reward, init_area, init_objective
 
@@ -157,11 +156,11 @@ class LitEnvironment(pl.LightningModule):
 
     def get_objective(self):
         objective = 0
-        with open(self.csv_path) as f:
+        with open(self.csv_path, 'r') as f:
             content=csv.reader(f)
             content_dict=[row for row in content]
             for i in range(len(content_dict)):
-                if(i>1): objective=float(content_dict[i][1])
+                if(i>1): objective=-float(content_dict[i][1])
 
         return objective
 
