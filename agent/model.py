@@ -11,6 +11,7 @@ import subprocess
 from subprocess import Popen
 import csv
 from util import DataVisualization
+import platform
 
 newton = Newton()
 data = DataVisualization()
@@ -114,6 +115,7 @@ class LitEnvironment(pl.LightningModule):
         self.edp_path = self.env.edp_path
         self.csv_path = self.env.csv_path
         self.init_total_reward = 0
+        self.platform = platform.system()
         self.reset()
 
     def reset(self):
@@ -148,8 +150,11 @@ class LitEnvironment(pl.LightningModule):
         h = state[1]
         w_str = str(w)
         h_str = str(h)
-        popen=Popen(["FreeFEM++", self.edp_path, "-h", h_str, "-w", w_str], encoding="utf-8", stdout=subprocess.PIPE)
-        popen.wait()
+        if platform=='Windows': 
+            subprocess.run(["FreeFEM++", self.edp_path, "-h", h_str, "-w", w_str], encoding="utf-8", stdout=subprocess.PIPE)
+        else:
+            popen=Popen(["FreeFEM++", self.edp_path, "-h", h_str, "-w", w_str], encoding="utf-8", stdout=subprocess.PIPE)
+            popen.wait()
         objective = self.get_objective()
 
         return objective

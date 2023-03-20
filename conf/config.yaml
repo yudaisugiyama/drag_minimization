@@ -21,5 +21,5 @@ env:
   max_epoch: 40
   warm_up_epoch: 10 # more batch_size
   round_digit: 16
-  edp_path: '/Users/YudaiSugiyama/KuLabo/_src/12_DQN_MinDrag/fem.edp'
+  edp_path: /Users/YudaiSugiyama/Github/drag_minimization/drag.edp
   csv_path: 'data.csv'
