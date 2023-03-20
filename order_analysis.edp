@@ -1,13 +1,13 @@
 include "getARGV.idp"
 
 verbosity = 0;
-bool ScreenDisplay = 0;
-bool OutPltFile = 0;
+bool ScreenDisplay = 1;
+bool OutPltFile = 1;
 bool OutCsvFile = 1;
 bool get = 1;
 
 real w = (get ? getARGV("-w", 1.) : 0.5);		
-real h = (get ? getARGV("-h", 1.) : 0.5);	
+real h = (get ? getARGV("-h", 1.) : 0.5);		
 real r = 0.5;
 real width = 16*r;
 real length = 32*r;
@@ -17,7 +17,7 @@ border L0(t=0,-width){x=0; y=t; label=Dirichlet;};
 border L1(t=0,length){x=t; y=-width; label=Dirichlet;};
 border L2(t=-width,0){x=length; y=t; label=Dirichlet;}
 border L3(t=length,0){x=t; y=0; label=Dirichlet;};
-border C(t=0,2*pi){x=(0.5*width)+h*cos(t); y=(-0.5*width)+w*sin(t); label=Circle;};
+border C(t=0,2*pi){x=(0.5*width-r)+w*cos(t); y=(-0.5*width+r)+h*sin(t); label=Circle;};
 
 macro pow2(x)(2^x) // 
 real maxh = 0; // メッシュの細かさ
@@ -26,7 +26,7 @@ mesh Th = buildmesh(L0(20*pow2(maxh))+L1(60*pow2(maxh))+L2(20*pow2(maxh))+L3(60*
 
 fespace Vh(Th,[P2,P2]),Qh(Th,P1);
 
-real imax = 1;// 500
+real imax = 500;// 500
 Vh [u1,u2],[v1,v2],[up1,up2]; // u: 流速, v: テスト関数, up: 流速履歴
 Qh p,pp,q,vd1,vd2,Fdv; // p: 圧力, pp:圧力履歴, q: スカラー関数, vd1,vd2: 重み関数v^D, Fdv:抗力
 
@@ -67,9 +67,9 @@ real objective = 0;
 real f = 0;
 real Fd = 0;
 
-varf wall(e,v1) = int2d(Th)(f*v1) 
-                    +on(Dirichlet,e=0)
-                    +on(Circle,e=1);
+varf wall(u1,v1) = int2d(Th)(f*v1) 
+                    +on(Dirichlet,u1=0)
+                    +on(Circle,u1=1);
 vd1[] = wall(0,Qh,tgv=1); 
 vd2 = 0;
 
@@ -101,7 +101,7 @@ for(int i=1;i<=imax;i++){
 				<<"0"<<","<<objective<<","<<area<<","<<w<<","<<h<<endl;				
 	}    
 
-    if(ScreenDisplay) plot([Fdv],cmm="t="+t,fill=true,value=true,ps="outputs/state-"+i+".eps",dim=2);
+    if(ScreenDisplay) plot([Fdv],cmm="t="+t,fill=true,value=true,ps="outputs/state-"+i+".eps",dim=3);
     if(OutPltFile){
         ofstream outplt("outputs/state.plt",append);
                  outplt <<"VARIABLES = \"X\",\"Y\",\"u1\",\"u2\",\"p\",\"Fdv\""<<endl;
@@ -110,7 +110,7 @@ for(int i=1;i<=imax;i++){
                  for(int l=0;l<Th.nt;l++) outplt <<Th[l][0]+1.<<" "<<Th[l][1]+1.<<" "<<Th[l][2]+1.<<endl;
     }
 
-   objective = objective +0.5 * Fd * Fd * dt;
+   objective = objective + Fd * Fd * dt;
    cout << "objective= " << objective << endl;
 
     if(OutCsvFile){
